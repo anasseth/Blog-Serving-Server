@@ -1,7 +1,6 @@
 const express = require("express");
 var router = express.Router();
 const FAQController = require("../../Controllers/FAQs/FAQs-Controller");
-const FAQ = require("../../Models/FAQs/FAQs-Model");
 router.use(express.static("build"));
 
 const requestLogger = (request, response, next) => {

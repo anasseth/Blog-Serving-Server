@@ -26,8 +26,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 var productRouter = require("./Routes/Product/Product-Route");
+var faqRouter = require("./Routes/FAQs/FAQs-Route");
 
 app.use("/api/products", productRouter);
+app.use("/api/faqs", faqRouter);
 
 const errorHandler = (error, request, response, next) => {
   console.error(error.message);
