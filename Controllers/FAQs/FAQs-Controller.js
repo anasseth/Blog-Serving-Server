@@ -28,7 +28,11 @@ const newFAQs = (req, res, next) => {
 
 //DELETE '/tea/:name'
 const deleteOneFAQs = (req, res, next) => {
-  res.json({ message: "DELETE 1 FAQ" });
+  FAQ.findByIdAndRemove(req.params.id)
+  .then((result) => {
+    res.status(204).end();
+  })
+  .catch((error) => next(error));
 };
 
 //export controller functions

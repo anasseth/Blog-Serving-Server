@@ -50,7 +50,11 @@ const newCart = (req, res, next) => {
 
 //DELETE '/tea/:name'
 const deleteOneCart = (req, res, next) => {
-  res.json({ message: "DELETE 1 FAQ" });
+    Cart.findByIdAndRemove(req.params.id)
+    .then((result) => {
+      res.status(204).end();
+    })
+    .catch((error) => next(error));
 };
 
 //export controller functions

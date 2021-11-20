@@ -38,7 +38,11 @@ const newCheckout = (req, res, next) => {
 };
 
 const deleteOneCheckout = (req, res, next) => {
-  res.json({ message: "DELETE 1 FAQ" });
+    Checkout.findByIdAndRemove(req.params.id)
+    .then((result) => {
+      res.status(204).end();
+    })
+    .catch((error) => next(error));
 };
 
 module.exports = {

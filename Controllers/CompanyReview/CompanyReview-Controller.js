@@ -28,7 +28,11 @@ const newReview = (req, res, next) => {
 };
 
 const deleteOneReview = (req, res, next) => {
-  res.json({ message: "DELETE 1 FAQ" });
+    CompanyReview.findByIdAndRemove(req.params.id)
+    .then((result) => {
+      res.status(204).end();
+    })
+    .catch((error) => next(error));
 };
 
 module.exports = {

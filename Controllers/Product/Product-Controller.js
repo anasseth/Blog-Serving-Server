@@ -58,7 +58,11 @@ const newComment = (req, res, next) => {
 
 //DELETE '/tea/:name'
 const deleteOneProduct = (req, res, next) => {
-  res.json({ message: "DELETE 1 Product" });
+  Product.findByIdAndRemove(req.params.id)
+    .then((result) => {
+      res.status(204).end();
+    })
+    .catch((error) => next(error));
 };
 
 //export controller functions
