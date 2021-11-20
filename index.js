@@ -27,9 +27,15 @@ app.use(express.json());
 
 var productRouter = require("./Routes/Product/Product-Route");
 var faqRouter = require("./Routes/FAQs/FAQs-Route");
+var companyReviewRouter = require("./Routes/CompanyReview/CompanyRevew-Route");
+var cartRouter = require("./Routes/Cart/Cart-Route");
+var checkoutRouter = require("./Routes/Checkout/Checkout-Route");
 
 app.use("/api/products", productRouter);
 app.use("/api/faqs", faqRouter);
+app.use("/api/companyReviews", companyReviewRouter);
+app.use("/api/carts", cartRouter);
+app.use("/api/checkouts", checkoutRouter);
 
 const errorHandler = (error, request, response, next) => {
   console.error(error.message);
