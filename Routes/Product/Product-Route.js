@@ -1,7 +1,6 @@
 const express = require("express");
 var router = express.Router();
 const ProductController = require("../../Controllers/Product/Product-Controller");
-const Product = require("../../Models/Product/Product-Model");
 router.use(express.static("build"));
 
 const requestLogger = (request, response, next) => {

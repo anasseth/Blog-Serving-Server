@@ -6,13 +6,14 @@ const productSchema = new mongoose.Schema({
   category: String,
   tag: String,
   imageSrc: String,
+  featureProduct: Boolean,
   prescription: String,
-  type: [
+  typesOfPill: [
     {
       power: String,
       quantity: String,
-      no_of_pills: String,
-      price: String,
+      price_per_pills: String,
+      our_price: String,
     },
   ],
 });
