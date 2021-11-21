@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const CheckoutSchema = new mongoose.Schema({
   uniqueOrderNumber: String,
   trackingID: String,
+  imageURL: String,
   first_name: String,
   last_name: String,
   email_address: String,
@@ -15,6 +16,12 @@ const CheckoutSchema = new mongoose.Schema({
   country: String,
   regionOrState: String,
   orderNotes: String,
+  orderDate: String,
+  expectedDelivery: String,
+  orderTime: String,
+  orderStatus: String,
+  paymentType: String,
+  creditCardType: String,
 });
 
 CheckoutSchema.set("toJSON", {

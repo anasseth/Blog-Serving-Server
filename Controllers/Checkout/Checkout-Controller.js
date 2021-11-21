@@ -9,12 +9,13 @@ const getAllCheckout = (req, res, next) => {
 const newCheckout = (req, res, next) => {
   const body = req.body;
   console.log(req.body);
-  if (body.question == undefined) {
+  if (body.uniqueOrderNumber == undefined) {
     return res.status(400).json({ error: "content missing" });
   }
   const CheckoutObject = new Checkout({
     uniqueOrderNumber: body.uniqueOrderNumber,
     trackingID: body.trackingID,
+    imageURL: body.imageURL,
     first_name: body.first_name,
     last_name: body.last_name,
     email_address: body.email_address,
@@ -27,6 +28,12 @@ const newCheckout = (req, res, next) => {
     country: body.country,
     regionOrState: body.regionOrState,
     orderNotes: body.orderNotes,
+    orderDate: body.orderDate,
+    expectedDelivery: body.expectedDelivery,
+    orderTime: body.orderTime,
+    orderStatus: body.orderStatus,
+    paymentType: body.paymentType,
+    creditCardType: body.creditCardType,
   });
 
   console.log(body);
@@ -38,7 +45,7 @@ const newCheckout = (req, res, next) => {
 };
 
 const deleteOneCheckout = (req, res, next) => {
-    Checkout.findByIdAndRemove(req.params.id)
+  Checkout.findByIdAndRemove(req.params.id)
     .then((result) => {
       res.status(204).end();
     })
