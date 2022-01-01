@@ -30,12 +30,16 @@ var faqRouter = require("./Routes/FAQs/FAQs-Route");
 var companyReviewRouter = require("./Routes/CompanyReview/CompanyRevew-Route");
 var cartRouter = require("./Routes/Cart/Cart-Route");
 var checkoutRouter = require("./Routes/Checkout/Checkout-Route");
+var categoryRouter = require("./Routes/Category/Category-Route");
+var imageUploadRouter = require("./Routes/ImageUpload/ImageUpload-Route");
 
 app.use("/api/products", productRouter);
 app.use("/api/faqs", faqRouter);
 app.use("/api/companyReviews", companyReviewRouter);
 app.use("/api/carts", cartRouter);
 app.use("/api/checkouts", checkoutRouter);
+app.use("/api/category", categoryRouter);
+app.use("/api/uploads", imageUploadRouter);
 
 const errorHandler = (error, request, response, next) => {
   console.error(error.message);
@@ -54,6 +58,7 @@ const unknownEndpoint = (request, response) => {
 app.use(unknownEndpoint);
 
 app.use(errorHandler);
+app.options("*", cors());
 
 const PORT = 3001;
 app.listen(PORT);

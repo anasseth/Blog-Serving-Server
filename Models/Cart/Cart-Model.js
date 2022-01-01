@@ -8,8 +8,6 @@ const CartSchema = new mongoose.Schema({
   couponApplied: Boolean,
   couponCode: String,
   orderDate: String,
-  expectedDelivery: String,
-  orderTime: String,
   orderStatus: String,
   paymentType: String,
   creditCardType: String,
@@ -19,6 +17,12 @@ const CartSchema = new mongoose.Schema({
       quantity: String,
       price: String,
       category: String,
+      pillType: {
+        power: String,
+        quantity: String,
+        price_per_pills: String,
+        our_price: String,
+      },
     },
   ],
 });

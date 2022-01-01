@@ -17,9 +17,10 @@ const newProduct = (req, res, next) => {
     composition: body.composition,
     category: body.category,
     tag: body.tag,
-    imageSrc: body.imageSrc,
+    imageURLID: body.imageURLID,
     featureProduct: body.featureProduct,
     prescription: body.prescription,
+    type: body.type,
     typesOfPill: [],
   });
 
@@ -27,7 +28,7 @@ const newProduct = (req, res, next) => {
     var typesOfPillObject = {
       power: body.typesOfPill[i].power,
       quantity: body.typesOfPill[i].quantity,
-      price_per_pills: body.typesOfPill[i].price_per_pills,
+      price_per_pills: (Number(body.typesOfPill[i].our_price)/Number(body.typesOfPill[i].quantity)).toString(),
       our_price: body.typesOfPill[i].our_price,
     };
     product.typesOfPill.push(typesOfPillObject);

@@ -19,4 +19,6 @@ router.post("/", CheckoutController.newCheckout);
 
 router.delete("/:id", CheckoutController.deleteOneCheckout);
 
+router.put("/:id", CheckoutController.updateCheckout);
+
 module.exports = router;

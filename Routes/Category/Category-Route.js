@@ -1,6 +1,6 @@
 const express = require("express");
 var router = express.Router();
-const CartController = require("../../Controllers/Cart/Cart-Controller");
+const CategoryController = require("../../Controllers/Category/Category-Controller");
 router.use(express.static("build"));
 
 const requestLogger = (request, response, next) => {
@@ -13,12 +13,10 @@ const requestLogger = (request, response, next) => {
 
 router.use(requestLogger);
 
-router.get("/", CartController.getAllCart);
+router.get("/", CategoryController.getAllCategory);
 
-router.post("/", CartController.newCart);
+router.post("/", CategoryController.newCategory);
 
-router.delete("/:id", CartController.deleteOneCart);
-
-router.put("/:id", CartController.updateCart);
+router.delete("/:id", CategoryController.deleteOneCategory);
 
 module.exports = router;

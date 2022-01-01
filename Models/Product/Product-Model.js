@@ -5,9 +5,10 @@ const productSchema = new mongoose.Schema({
   composition: String,
   category: String,
   tag: String,
-  imageSrc: String,
+  imageURLID: String,
   featureProduct: Boolean,
   prescription: String,
+  type: String,
   typesOfPill: [
     {
       power: String,
