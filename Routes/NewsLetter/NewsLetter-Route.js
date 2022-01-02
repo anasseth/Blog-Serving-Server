@@ -1,6 +1,6 @@
 const express = require("express");
 var router = express.Router();
-const BlogController = require("../../Controllers/Blog/Blog-Controller");
+const NewsLetterController = require("../../Controllers/NewsLetter/NewsLetter-Controller");
 router.use(express.static("build"));
 
 const requestLogger = (request, response, next) => {
@@ -13,12 +13,10 @@ const requestLogger = (request, response, next) => {
 
 router.use(requestLogger);
 
-router.get("/", BlogController.getAllBlogs);
+router.get("/", NewsLetterController.getAllNewsLetterUsers);
 
-router.post("/", BlogController.newBlog);
+router.post("/", NewsLetterController.newUserForNewsLetter);
 
-router.delete("/:id", BlogController.deleteOneBlog);
-
-// router.put("/:id", BlogController.updateCart);
+router.delete("/:id", NewsLetterController.deleteOneUserFromNewsLetter);
 
 module.exports = router;

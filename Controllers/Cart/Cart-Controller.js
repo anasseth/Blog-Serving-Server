@@ -60,7 +60,6 @@ const deleteOneCart = (req, res, next) => {
     .catch((error) => next(error));
 };
 
-
 const updateCart = (request, response, next) => {
   const body = request.body;
 
@@ -79,7 +78,7 @@ const updateCart = (request, response, next) => {
     creditCardType: body.creditCardType,
   };
 
-  if(body.items != null && body.items != undefined && body.items.length > 0){
+  if (body.items != null && body.items != undefined && body.items.length > 0) {
     for (var i = 0; i < body.items.length; i++) {
       var itemObject = {
         productName: body.items[i].productName,
@@ -94,6 +93,7 @@ const updateCart = (request, response, next) => {
         },
       };
     }
+    updatedCart.items = [];
     updatedCart.items.push(itemObject);
   }
 
@@ -104,11 +104,10 @@ const updateCart = (request, response, next) => {
     .catch((error) => next(error));
 };
 
-
 //export controller functions
 module.exports = {
   getAllCart,
   newCart,
   deleteOneCart,
-  updateCart
+  updateCart,
 };

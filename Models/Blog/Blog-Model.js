@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const blogSchema = new mongoose.Schema({
   name: String,
   keyword: String,
+  pageDescription:String,
+  pageTitle:String,
+  urlParameter:String,
+  bannerImageURL:String,
   writer: String,
   date: Date,
   heading: String,
