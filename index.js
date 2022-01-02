@@ -32,8 +32,9 @@ var cartRouter = require("./Routes/Cart/Cart-Route");
 var checkoutRouter = require("./Routes/Checkout/Checkout-Route");
 var categoryRouter = require("./Routes/Category/Category-Route");
 var blogRouter = require("./Routes/Blog/Blog-Route");
-var websiteInfoRouter = require("./Routes/Website-Info/WebsiteInfo-Route")
-var newsLetterRouter = require("./Routes/NewsLetter/NewsLetter-Route")
+var websiteInfoRouter = require("./Routes/Website-Info/WebsiteInfo-Route");
+var newsLetterRouter = require("./Routes/NewsLetter/NewsLetter-Route");
+var customerQueryRouter = require("./Routes/Customer-Query/CustomerQuery-Route");
 var imageUploadRouter = require("./Routes/ImageUpload/ImageUpload-Route");
 
 app.use("/api/products", productRouter);
@@ -45,6 +46,7 @@ app.use("/api/category", categoryRouter);
 app.use("/api/blogs", blogRouter);
 app.use("/api/newsletter", newsLetterRouter);
 app.use("/api/webinfo", websiteInfoRouter);
+app.use("/api/query", customerQueryRouter);
 app.use("/api/uploads", imageUploadRouter);
 
 const errorHandler = (error, request, response, next) => {
