@@ -1,6 +1,7 @@
 const upload = require("../../Middleware/imageUpload");
 const express = require("express");
 const router = express.Router();
+const authToken = require('../../Middleware/authToken');
 
 router.post("/", upload.single("file"), async (req, res) => {
   if (req.file == undefined) {

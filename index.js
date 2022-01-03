@@ -20,11 +20,17 @@ mongoose
     console.log("error connecting to MongoDB:", error.message);
   });
 
+// adding Helmet to enhance Rest API's security
+app.use(helmet());
+// adding morgan to log HTTP requests
+app.use(morgan("combined"));
+// Rest of Method
 app.use(express.static("build"));
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+var authenticationRouter = require("./Routes/SecuringAPI/Secure-Route");
 var productRouter = require("./Routes/Product/Product-Route");
 var faqRouter = require("./Routes/FAQs/FAQs-Route");
 var companyReviewRouter = require("./Routes/CompanyReview/CompanyRevew-Route");
@@ -37,6 +43,7 @@ var newsLetterRouter = require("./Routes/NewsLetter/NewsLetter-Route");
 var customerQueryRouter = require("./Routes/Customer-Query/CustomerQuery-Route");
 var imageUploadRouter = require("./Routes/ImageUpload/ImageUpload-Route");
 
+app.use("/api/authentication", authenticationRouter);
 app.use("/api/products", productRouter);
 app.use("/api/faqs", faqRouter);
 app.use("/api/companyReviews", companyReviewRouter);
@@ -51,11 +58,9 @@ app.use("/api/uploads", imageUploadRouter);
 
 const errorHandler = (error, request, response, next) => {
   console.error(error.message);
-
   if (error.name === "CastError") {
     return response.status(400).send({ error: "malformatted id" });
   }
-
   next(error);
 };
 
@@ -64,7 +69,6 @@ const unknownEndpoint = (request, response) => {
 };
 
 app.use(unknownEndpoint);
-
 app.use(errorHandler);
 app.options("*", cors());
 

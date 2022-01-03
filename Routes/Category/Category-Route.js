@@ -2,6 +2,7 @@ const express = require("express");
 var router = express.Router();
 const CategoryController = require("../../Controllers/Category/Category-Controller");
 router.use(express.static("build"));
+const authToken = require('../../Middleware/authToken');
 
 const requestLogger = (request, response, next) => {
   console.log("Method:", request.method);
@@ -15,8 +16,8 @@ router.use(requestLogger);
 
 router.get("/", CategoryController.getAllCategory);
 
-router.post("/", CategoryController.newCategory);
+router.post("/",[authToken.verifyToken], CategoryController.newCategory);
 
-router.delete("/:id", CategoryController.deleteOneCategory);
+router.delete("/:id",[authToken.verifyToken], CategoryController.deleteOneCategory);
 
 module.exports = router;
