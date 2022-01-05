@@ -42,6 +42,7 @@ var websiteInfoRouter = require("./Routes/Website-Info/WebsiteInfo-Route");
 var newsLetterRouter = require("./Routes/NewsLetter/NewsLetter-Route");
 var customerQueryRouter = require("./Routes/Customer-Query/CustomerQuery-Route");
 var imageUploadRouter = require("./Routes/ImageUpload/ImageUpload-Route");
+const { prototype } = require("jsonwebtoken/lib/JsonWebTokenError");
 
 app.use("/api/authentication", authenticationRouter);
 app.use("/api/products", productRouter);
@@ -73,5 +74,5 @@ app.use(errorHandler);
 app.options("*", cors());
 
 const PORT = 3001;
-app.listen(PORT);
+app.listen(process.env.PORT || PORT);
 console.log(`Server running on port ${PORT}`);
