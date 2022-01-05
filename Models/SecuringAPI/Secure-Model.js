@@ -31,4 +31,4 @@ authenticationSchema.statics.comparePassword = async (
   return await bcrypt.compare(password, receivedPassword);
 };
 
-module.exports = mongoose.model("authentication", authenticationSchema);
+module.exports = mongoose.model("authentications", authenticationSchema);
