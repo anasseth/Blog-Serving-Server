@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const blogSchema = new mongoose.Schema({
   name: String,
   keyword: String,
-  pageDescription:String,
-  pageTitle:String,
-  urlParameter:String,
-  bannerImageURL:String,
+  pageDescription: String,
+  pageTitle: String,
+  urlParameter: String,
+  bannerImageURL: String,
   writer: String,
   date: Date,
   heading: String,
@@ -17,13 +17,6 @@ const blogSchema = new mongoose.Schema({
       date: Date,
       comment: String,
       gender: String,
-      reply: [
-        {
-          person_name: String,
-          date: Date,
-          comment: String,
-        },
-      ],
     },
   ],
 });
