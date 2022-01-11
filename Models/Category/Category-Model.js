@@ -9,6 +9,7 @@ const CategorySchema = new mongoose.Schema({
   pageKeyword: String,
   pageContent: String,
   showInSideMenu: Boolean,
+  categoryType:String
 });
 
 CategorySchema.set("toJSON", {

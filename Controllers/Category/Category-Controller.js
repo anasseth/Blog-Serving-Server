@@ -22,6 +22,7 @@ const newCategory = (req, res, next) => {
     pageDescription: body.pageDescription,
     pageKeyword: body.pageKeyword,
     pageContent: body.pageContent,
+    categoryType:body.categoryType
   });
 
   console.log(body);

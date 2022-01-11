@@ -32,7 +32,6 @@ app.use(express.json());
 
 var authenticationRouter = require("./Routes/SecuringAPI/Secure-Route");
 var faqRouter = require("./Routes/FAQs/FAQs-Route");
-var companyReviewRouter = require("./Routes/CompanyReview/CompanyRevew-Route");
 var categoryRouter = require("./Routes/Category/Category-Route");
 var blogRouter = require("./Routes/Blog/Blog-Route");
 var websiteInfoRouter = require("./Routes/Website-Info/WebsiteInfo-Route");
@@ -42,7 +41,6 @@ const { prototype } = require("jsonwebtoken/lib/JsonWebTokenError");
 
 app.use("/api/authentication", authenticationRouter);
 app.use("/api/faqs", faqRouter);
-app.use("/api/companyReviews", companyReviewRouter);
 app.use("/api/category", categoryRouter);
 app.use("/api/blogs", blogRouter);
 app.use("/api/newsletter", newsLetterRouter);

@@ -11,11 +11,16 @@ const blogSchema = new mongoose.Schema({
   date: Date,
   heading: String,
   content: String,
+  views:Number,
+  likes:Number,
+  category:String,
+  type:String,
   comment: [
     {
       person_name: String,
       date: Date,
       comment: String,
+      email:String,
       gender: String,
     },
   ],
